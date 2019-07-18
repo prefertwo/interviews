@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>layui 使用</title>
+
+    <style>
+      ul {
+        display: flex;
+        position: absolute;
+        width: 800px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      li {
+        position: relative;
+        padding: 20px;
+        font-size: 24px;
+        line-height: 1;
+        transition:  0.2s all linear;
+        cursor: pointer;
+      }
+      li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 0;
+        height: 100%;
+        border-bottom: solid red 2px;
+        transition: 0.2s all linear;
+      }
+      li:hover::before {
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition-delay: 0.1s;
+        border-bottom-color: red;
+        z-index: 1;
+      }
+      li:hover ~ li::before {
+        left: 0;
+      }
+      li:active {
+        background: #00ff00;
+        color: #ffffff;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="box">这是一二</div>
+    <div>
+      <span>按一次空格加一：</span>
+      <p id="p"></p>
+    </div>
+    <div class="nav-bar">
+      <ul>
+        <li>不可思议</li>
+        <li>导航栏</li>
+        <li>宽度不确定</li>
+        <li>纯CSS实现效果</li>
+      </ul>
+    </div>
+
+    <script>
+      let count = 0;
+      let dom = document.getElementById("p");
+
+      function getUserAction(e) {
+        console.log('3213');
+
+        if (e.keyCode == 32) {
+          console.log('888');
+          dom.innerHTML = count++;
+        }
+      }
+
+
+      function debounce(func, wait, leading, trailing) {
+        console.log('123');
+        let timer,
+          lastCall = new Date(),
+          flag = true;
+          console.log(lastCall, 'lastCall');
+        return function() {
+          let context = this;
+          let args = arguments;
+          let now = +new Date();
+          console.log(now, 'now');
+          if (now - lastCall < wait) {
+            flag = false;
+            lastCall = now;
+          } else {
+            flag = true;
+          }
+          if (leading && flag) {
+            lastCall = now;
+            return func.apply(context, args);
+          }
+          if (trailing) {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              flag = true;
+              func.apply(context, args);
+            }, wait);
+          }
+        };
+      }
+
+      function throttle(func, wait) {
+        let timer;
+        console.log('timer')
+
+        return function() {
+        console.log(timer)
+          
+          let context = this;
+          let args = arguments;
+          if(!timer) {
+            timer = setTimeout(() => {
+              timer = null;
+              func.apply(context, args);
+            }, wait);
+          }
+        }
+      }
+      function f() {
+        console.log('timer');
+      }
+
+      document.onkeydown = (e) => {
+        console.log(e);
+        // debounce(getUserAction, 1000, true, true);
+        throttle(f, 3000);
+
+      }
+
+    </script>
+  </body>
+</html>
