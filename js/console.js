@@ -1,5 +1,8 @@
+/**
+ * 第一题：JS事件循环中函数的执行顺序问题。包括 async、await、setTimeout、Promise
+ */
 
-// 标出 输出顺序
+// 第一题：标出 输出顺序
 async function async1() {
   console.log('async1 start'); // 3 -- 2
   await async2();
@@ -26,3 +29,6 @@ new Promise(function(resolve) {
 });
 
 console.log('script end'); // 8 -- 5
+/**
+ * 此题的输出在谷歌浏览器 和 vsCode 终端输出不一致。
+ */
