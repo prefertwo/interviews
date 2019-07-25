@@ -54,20 +54,40 @@
     } */
 
     /* table-cell 布局 */
-    .wrap .box {
+    /* .wrap .box {
       display: table-cell;
       width: 30%;
+    } */
+    .wrap {
+      position: relative;
+    }
+    .box:nth-of-type(2) {
+      border-left: 220px solid #00f;
+      border-right: 320px solid #0f0;
+      background-color: #f00;
+    }
+    .box:nth-of-type(1) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+    }
+    .box:nth-of-type(3) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
     }
     </style>
   </head>
 
   <body>
     <div class="wrap">
-      <div class="box" style="background-color: #f00;">这是左边内容</div>
-      <div class="box" style="background-color: #0f0;">
+      <div class="box" >这是左边内容</div>
+      <div class="box" >
         这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。
       </div>
-      <div class="box" style="background-color: #00f;">dd</div>
+      <div class="box" >dd</div>
     </div>
   </body>
 </html>
