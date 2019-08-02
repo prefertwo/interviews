@@ -79,8 +79,8 @@ console.log(descriptor)
    *    1、字面量和Object构造函数。缺点：使用同一个接口创建很多对象，会产生大量重复代码。
    *    2、工厂模式。解决了创建多个相似对象的问题，没有解决对象识别的问题（即怎样知道一个对象的类型）。
    *    3、构造函数模式。主要问题是：每个 方法 都要在每个实例上重新创建一遍。
-   *    4、原型模式。
-   *    5、组合使用构造函数和原型模式
+   *    4、原型模式。主要问题源于 共享的本性。
+   *    5、组合使用构造函数和原型模式。
    *    6、动态原型模式
    *    7、寄生构造函数模式
    *    8、稳妥构造函数模式
@@ -152,6 +152,7 @@ console.log(descriptor)
   
   delete stu1.name
   console.log(stu1.name) // guozheng (实例上没有就去原型上找)
+  
   // 更简单的原型写法
   function Student2() {}
   Student2.prototype = {
@@ -163,5 +164,111 @@ console.log(descriptor)
       console.log(this.name)
     }
   }
+
+  // 原型的动态性。下面重写了原型对象，就切断了现有原型与任何之前已经存在的对象实例之间的联系；它们引用的仍然是最初的原型。
+  function PersonA() {}
+  let friend1 = new PersonA();
+
+  PersonA.prototype = {
+    constructor: PersonA,
+    name:'Jerry',
+    age: 21,
+    sayName: function() {
+      console.log(this.name)
+    }
+  }
+
+  let friend2 = new PersonA();
+  // friend1.sayName() // 报错，friend1.sayName is not a function
+  friend2.sayName() // Jerry
+
+  // 原型模式的问题：1、省略了为构造函数传参初始化，导致所有实例默认拥有了共同的属性值和方法。最大的方法是由其共享的本性导致的。
+  function PersonB() {}
+  PersonB.prototype = {
+    constructor: PersonB,
+    name: 'Tom',
+    age: 21,
+    friends: ['Jerry', 'Erick'],
+    sayName: function() {
+      console.log(this.name)
+    }
+  }
+  let person5 = new PersonB();
+  let person6 = new PersonB();
+
+  person5.friends.push('Eva');
+  console.log( person5.friends ) // [ 'Jerry', 'Erick', 'Eva' ]
+  console.log( person6.friends ) // [ 'Jerry', 'Erick', 'Eva' ]
+  console.log( person5.friends == person6.friends ) // true
+
+  // 组合使用构造函数和原型模式
+  function PersonC(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ['ZhangSan', 'LiSi']
+  }
+  PersonC.prototype = {
+    constructor: PersonC,
+    sayName: function() {
+      console.log(this.name)
+    }
+  }
+  let person7 = new PersonC('guo', 23, '前端工程师');
+  let person8 = new PersonC('zheng', 28, '工程师');
+
+  person7.friends.push('Tom', 'Jerry');
+
+  console.log( person7.friends ) // [ 'ZhangSan', 'LiSi', 'Tom', 'Jerry' ]
+  console.log( person8.friends ) // [ 'ZhangSan', 'LiSi' ]
+  console.log( person7.friends == person8.friends ) // false
+  console.log( person7.sayName == person8.sayName ) // true
+
+  // 动态原型模式。它把所有信息都封装在了构造函数中，而通过在构造函数中初始化原型，又保持了同时使用构造函数和原型的优点。
+  function PersonD(name, age, jpb) {
+    this.name = name;
+    this.age = age;
+    this.job = jpb;
+    // 方法
+    if(typeof this.sayName != "function") {
+      PersonD.prototype.sayName = function() {
+        console.log(this.name)
+      }
+    }
+  }
+
+  let person9 = new PersonD('Tom', 4, 'mouse');
+  person9.sayName() // Tom
+
+  // 寄生构造函数模式：特殊情况下用来为对象创建构造函数。比如，想创建一个具有特殊方法的数组，但是又不能修改Array构造函数。此时可用此模式。
+  function SpecialArray() {
+    let values = new Array(); // 创建数组
+    values.push.apply(values, arguments); // 添加值
+    values.toPipedString = function() { // 添加方法
+      return this.join('|')
+    }
+    return values; // 返回数组
+  }
+
+  let colors = new SpecialArray("red", "green", "blue");
+
+  console.log( colors.toPipedString() ) // red|green|blue
+
+
+  // 稳妥构造函数模式。主要适用于安全环境中；和寄生构造函数模式类似。下面例子，除了sayName 方法，没有其他方法访问 name 的值。
+  function PersonE(name, age, job) {
+    let o = new Object(); // 创建要返回的对象
+
+    // 可以定义私有变量和函数
+
+    // 添加方法
+    o.sayName = function() {
+      console.log(name)
+    }
+
+    return o; // 
+  }
+
+
 
 
