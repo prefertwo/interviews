@@ -81,7 +81,7 @@ for (var i = 6; i < 10; i++) {
 let arr = [];
 let m = 0;
 for(var i=7;i<10;i++) {
-  arr[i] = i;
+  arr[m] = i;
   m++;
   setTimeout(function () {
     console.log(arr.shift())
