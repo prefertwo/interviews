@@ -54,10 +54,10 @@ console.log(random1)
  console.log( Math.log(100) ) // 4.605170185988092        返回 num 的自然对数
  console.log( Math.pow(2, 3) ) // 8                       返回 2 的 3次幂
  console.log( Math.sqrt(16) ) // 4                        返回 num 的平方根
- console.log( Math.acos(Math.PI/6) ) // 1.0197267436954502             返回 num 的反余弦值
+ console.log( Math.acos(Math.PI/6) ) // 1.0197267436954502             返回 num 的反余弦值 。。。。以下皆为弧度值。
  console.log( Math.asin(0.5) ) // 0.5235987755982989            返回 num 的反正弦值 
  console.log( Math.atan(1) ) //   0.7853981633974483                        返回 num 的反正切值
  console.log( Math.atan2(1,2) ) //  0.4636476090008061                      返回 1/2 的反正切值
- console.log( Math.cos(60) ) //  -0.9524129804151563                         返回 num 的余弦值
+ console.log( Math.cos(Math.PI/3) ) //  -0.5000000000000001                         返回 num 的余弦值。。。num 是以弧度为单位的数值，返回数值
  console.log( Math.sin(30) ) //  -0.9880316240928618                         返回 num 的正弦值
  console.log( Math.tan(Math.PI/4) ) // 0.9999999999999999                   返回 num 的正切值
