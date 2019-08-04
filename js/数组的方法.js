@@ -10,6 +10,8 @@
  *    归并方法：reduce()、reduceRight()
  *    其他方法：concat()、splice()、join()、slice()、
  * 
+ *    作为数组的字符串
+ * 
  */
 
 //  join() 接收一个可选参数，作为连接字符串的分隔符，返回连接的字符串。
@@ -131,3 +133,12 @@ console.log(arr11.indexOf(1))     // 1
 console.log(arr11.lastIndexOf(0)) // 4
 
 
+// 作为数组的字符串。字符串的行为类似于只读的数组。
+// 除了使用 charAt() 方法访问单个的字符以外，还可以使用 方括号 []。 数组的通用方法还可以应用到字符串上。
+let str = 'javascript';
+console.log(str.charAt(2)) // v
+console.log(str[4]) // s
+console.log( Array.prototype.join.call(str, ' ') ) // j a v a s c r i p t
+let resultStr = Array.prototype.filter.call(str, (x) => { return x.match(/[^aeiou]/); }).join(''); // 只匹配非元音字母
+console.log(resultStr) // jvscrpt
+// 字符串可以看做是只读数组，即不可变，所有能改变原数组的方法，都不可以使用在字符串上。使用这些方法修改字符串会导致错误：出错时没有提示。
