@@ -28,7 +28,7 @@ let min = Math.min(23, 25, 17);
 let max = Math.max(23, 25, 17);
 console.log(min, max) // 17 25
 let arr = [12, 32, 45, 76, 2, 44, 99];
-let arrMax = Math.max.apply(Math, arr); // 此处用call不行，会返回 NaN
+let arrMax = Math.max.apply(Math, arr); // 此处用call不行，会返回 NaN，因为call接受的参数是 参数列表的形式
 console.log(arrMax) // 99
 
 // 舍入方法
