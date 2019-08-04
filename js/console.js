@@ -1,7 +1,5 @@
 /**
  * 第一题：JS事件循环中函数的执行顺序问题。包括 async、await、setTimeout、Promise
- * 第二题：考查函数传参和对象
- * 第三题：作用域链、变量提升
  * 
  */
 
@@ -184,72 +182,6 @@ console.log('script end')
  * setTimeout
  */
 
-
-//  第二题：考查函数传参和对象
-function changeObjProperty(o) {
-  o.siteUrl = "http://www.baidu.com"
-  o = new Object()                        // 形参 o 的指向发生了改变，指向了向堆内存中一个新的对象。
-  o.siteUrl = "http://www.google.com"
-}
-let webSite = new Object();
-changeObjProperty(webSite);
-console.log(webSite.siteUrl);
-/**
- * 函数传参：函数的形参是值得传递，如果形参是对象的话，函数接受的是这个对象的指针地址。而 new Object() 声明了一个新对象，和原对象没关系了。原对象的值不会再有变化。
- * 对象作为参数，传递进去的是这个对象的引用地址，o.siteUrl 是给这个对象赋值，o = new Object() 是把 o 指向另一个对象，o.siteUrl 是给这个新对象赋值，不影响 webSite 这个变量指向的那个对象，两个 o 指向的对象的引用地址不同；
- */
-
-
-//  第三题：作用域链、变量提升
-var name = 'Tom';
-(function () {
-  if (typeof name == 'undefined') {
-    name = 'Jack';
-    console.log('Goodbye ' + name);
-  } else {
-    console.log('Hello ' + name);
-  }
-})();
-// 输出：Hello Tom
-
-var name = 'Tom';
-(function () {
-  if (typeof name == 'undefined') {
-    var name = 'Jack';
-    console.log('Goodbye ' + name);
-  } else {
-    console.log('Hello ' + name);
-  }
-})();
-// Goodbye Jack
-var name = 'Tom';
-(function () {
-  var name;
-  if (typeof name == 'undefined') {
-    name = 'Jack';
-    console.log('Goodbye ' + name);
-  } else {
-    console.log('Hello ' + name);
-  }
-})();
-// Goodbye Jack
-
-var name = 'Tom';
-(function (name) {
-  if (typeof name == 'undefined') {
-    var name = 'Jack';
-    console.log('Goodbye ' + name);
-  } else {
-    console.log('Hello ' + name);
-  }
-})(name);
-// Hello Tom
-/**
- * 当执行 typeof name 时，会首先在自己作用域范围内寻找变量 name 如果找不到，会向父级作用域寻找，直到找到顶级作用域 window。
- * 第一个例子 外层有 name 所以 typeof name == string，因此，执行 else 分支。
- * 同理，第四个例子传了参数 name ，也能找到，执行 else 分支
- * 第二个例子中，在IIFE（立即执行函数）范围内发生了变量提升，js 执行过程中，会先执行变量声明，然后执行其他操作。相当于第三个例子的写法。只声明，未赋值，因此 undefined，执行 if 分支。
- */
 // 一个有趣的例子
 var tt;
 console.log(typeof tt) // undefined
