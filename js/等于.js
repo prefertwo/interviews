@@ -67,3 +67,18 @@ function diff(obj1, obj2) {
 console.log( diff(object1, object2) ) // true
 
 
+var value = 'Tom';
+console.log('value is ' + (value === ' Tom ')?'something':'nothing' ) // something
+console.log('value is ' + (value === ' Tom ') ) // value is false
+console.log( value === ' Tom '?'something':'nothing' ) // nothing
+/**
+ * 第一个打印是把 'value is ' + (value === ' Tom ') 看作条件，此时为真，打印 something
+ */
+
+//  小数
+ console.log( 0.1 + 0.2 == 0.3 ) // false
+ console.log( 0.1 + 0.2 ) // 0.30000000000000004
+//  不同环境对浮点数的运算结果不确定。下面这种特殊情况，最后为 5 的属于一种特殊情况
+console.log( 0.15 + 0.25 == 0.4) // true
+console.log( 0.15 + 0.25) // 0.4
+
