@@ -87,3 +87,18 @@ checkScope() // local
   // Hello Tom
   // 传递了参数name，所以 typeof name == string，因此，执行 else 分支。
 
+  function Foo() {
+    var i = 0;
+    return function() {
+      console.log(i++)
+    }
+  }
+
+  var foo1 = Foo(), foo2 = Foo();
+  foo1();
+  foo1();
+  foo2();
+  // 0 1 0
+  // 一开始误以为是作用域的关系，问了才知道，这是foo1 和 foo2 是两个不相干的函数。
+  
+
