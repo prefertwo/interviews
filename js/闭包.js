@@ -1,5 +1,7 @@
 /**
  * 闭包：指有权访问另一个函数作用域中的变量的函数。红宝书 P178
+ * 闭包是函数和声明该函数的词法环境的组合。 MDN
+ * 理解闭包的关键在于：外部函数调用之后其变量对象本应该被销毁，但闭包的存在使我们仍然可以访问外部函数的变量对象，这就是闭包的重要概念。
  * 创建闭包的常见方式是：在一个函数内部创建另一个函数。
  * 闭包有三个特性：
  *              1、闭包可以访问当前函数以外的变量。
@@ -7,6 +9,9 @@
  *              3、闭包可以更新外部变量。
  * 
  * 经典输出 0 到 9 的题
+ * 
+ * https://www.jianshu.com/p/102e44f35b3b
+ * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures
  * 
  */
 // 特性1
@@ -41,7 +46,7 @@ function updateCount() {
   return getVal;
 }
 let count = new updateCount()
-count(110)
+count(110) // 110
 
 /**
  * 经典输出 0 到 9 的题
@@ -72,8 +77,8 @@ for(var i=0;i<10;i++) {
 for (var i = 6; i < 10; i++) {
   (function () {
       var j = i;
-       setTimeout(() => {
-       console.log(j);
+      setTimeout(() => {
+        console.log(j);
     }, 1000)
  })()
 }
@@ -104,3 +109,34 @@ function pprint(i){
 for(var i=0;i<10;i++){
   pprint(i)
 }
+
+/**
+ * 注意下面的例子
+ */
+
+  let arrTem = [1, 3, 5, 7, 9, 11];
+  for(var i=0;i<arrTem.length;i++) {
+    setTimeout(() => {
+      console.log(arrTem.length)
+    }, 1000)
+  }
+ // 打印 6 个 6。正常分析即可
+
+  for(var i=0;i<arrTem.length;i++) {
+    setTimeout(() => {
+      console.log(arrTem[i])
+    }, 1000)
+  }
+  /**
+  * 由于事件循环机制 setTimeout 执行的时候 i 已经是 6，arrTem索引只有到5有数据，因此arrTem[6] 为 undefined。
+  * 所以输出是 6 个 undefined
+  */
+  
+  for(let i=0;i<arrTem.length;i++) {
+    setTimeout(() => {
+      console.log(arrTem[i])
+    }, 1000)
+  }
+  /**
+   * 输出 1 3 5 7 9 11，因为 let 形成了块儿作用域，i 的值能保存。
+   */
