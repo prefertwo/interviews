@@ -82,3 +82,8 @@ console.log('setc==', setc) // setc== Set { 2, 4, 6 }
 let setd = new Set([1,2,3]);
 setd = new Set(Array.from(setd, val => val*2))
 console.log('setd==', setd) // setd== Set { 2, 4, 6 }
+
+
+/**
+ * JavaScript的对象，本质上是键值对的集合。但是它的键只能是传统意义上的字符串类型。这给它的使用带来了
+ */
