@@ -12,3 +12,19 @@ if(~a.indexOf("g")) {
 } else {
   console.log("执行 else 语句")
 }
+
+/**
+ * parseInt 和 Number
+ * 当字符串为数值字符串时,两者没啥区别.
+ * 当字符串中含有不可以转为数值的字符时: Number 会返回null, parseInt 返回前面能转化的部分
+ */
+
+ let ns1 = '23px';
+ let ns2 = '23';
+ let ns3 = 23;
+ console.log( Number(ns1))
+ console.log( Number(ns2))
+ console.log( Number(ns3))
+ console.log(parseInt(ns1))
+ console.log(parseInt(ns2))
+ console.log(parseInt(ns3))
