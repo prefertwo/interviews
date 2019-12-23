@@ -6,11 +6,11 @@
  */
 let a = 'guozheng';
 let b = ['guo', 'zheng', 'welcome'];
-
-if(~a.indexOf("g")) {
-  console.log("执行 if 语句")
+let c = 'guo'
+if(~a.indexOf(c)) {
+  console.log(`存在 ${c}`)
 } else {
-  console.log("执行 else 语句")
+  console.log(`不存在 ${c}`)
 }
 
 /**
