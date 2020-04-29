@@ -7,6 +7,22 @@
 let a = 'guozheng';
 let b = ['guo', 'zheng', 'welcome'];
 let c = 'guo'
+console.log(!!~b.indexOf(c)); // 不存在为false, 存在为true
+/**
+ * 为什么要用 !! 来转换一下呢？
+ * 如果不转化，当不存在时，结果为0，三元运算不会有问题，但是 短路运算会出问题。
+ * 如下：
+ */
+let d = !!~b.indexOf(c) && '存在';
+console.log(d) // 存在
+
+let e = !!~b.indexOf('dd') && '存在';
+console.log(e) // 0
+/**
+ * 这里期望是不输出的，也就是页面不应该展示 0。加上 !!转化则可以避免.
+ * 布尔值在页面不会渲染
+ */
+
 if(~a.indexOf(c)) {
   console.log(`存在 ${c}`)
 } else {
