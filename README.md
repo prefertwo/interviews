@@ -13,3 +13,5 @@
 4、[数组扁平化、柯里化](https://github.com/prefertwo/interviews/blob/master/js/%E6%95%B0%E7%BB%842.js)
 
 5、[防抖函数、节流函数](https://github.com/prefertwo/interviews/blob/master/js/%E5%87%BD%E6%95%B0%E7%BC%96%E7%A8%8B.js)
+
+6、[剑指offer面试题](https://github.com/prefertwo/interviews/tree/master/algorithm)
