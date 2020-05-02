@@ -36,21 +36,21 @@ Don′t let the social standards conform you.
 
 Age is just a number, we should all empower our uniqueness and fight against our own limitations.
 
-By doing things you love on a daily basis, even for a few minuts, you`ll learn to enjoy the journey.
+By doing things you love on a daily basis, even for a few minuts, you′ll learn to enjoy the journey.
 
 The days will become more than just a means to an end.
 
-You`ll see yourself evolving.
+You′ll see yourself evolving.
 
 Be in control.
 
 If you had the choice between feeling great, energetic and in a positive mood, versus feeling sleepy and moody, what would you choose?
 
-It`s just a choice, which combined with small, even tiny actions like reducing meat or alcohol consumption, or simply drinking more water, walking the stairs or biking to the office, you can do wonders.
+It′s just a choice, which combined with small, even tiny actions like reducing meat or alcohol consumption, or simply drinking more water, walking the stairs or biking to the office, you can do wonders.
 
-It`s not about the end goal, it`s about daily actions towards it.
+It′s not about the end goal, it′s about daily actions towards it.
 
-It`s also the reason why morning routimes, or ten minutes daily meditation sessions are bringing such great changes in terms of mood, productivity, stress management, etc.
+It′s also the reason why morning routimes, or ten minutes daily meditation sessions are bringing such great changes in terms of mood, productivity, stress management, etc.
 
 Replace Tv shows and movies by documentaries and books.
 
@@ -62,17 +62,17 @@ Silence your ego.
 
 Be kind with people.
 
-Start with your family, don`t go mad one more time.
+Start with your family, don′t go mad one more time.
 
 Stop judging, see the good in them and remember that you love them more than anything.
 
 In your working life, being kind and nice can bring you more respect from people who surround you than being bossy and agressive.
 
-Learn to say "No" often(for the right reasons), people will accept more and value your "Yes" more, because your time`s value will increase.
+Learn to say "No" often(for the right reasons), people will accept more and value your "Yes" more, because your time′s value will increase.
 
-You don`t need to be scary to be respected.
+You don′t need to be scary to be respected.
 
-It`s about building trust and healthy long term relationships.
+It′s about building trust and healthy long term relationships.
 
 Try this and in two years from now your reality will be so different.
 
@@ -84,15 +84,15 @@ It has a lot to do with setting goals, but goals without actions are just wishes
 
 The easiest way to reach goals is through daily and consistent small (even tiny) actions.
 
-It`s all about consistency, commitment, and regularity.
+It′s all about consistency, commitment, and regularity.
 
-Success is not an event, it`s a process and a mindset.
+Success is not an event, it′s a process and a mindset.
 
 Small actions are putting you in the position of succeeding.
 
 Small actions make huge differences.
 
-Look at yourself in the mirror in two years and you`ll think "that was quick!".
+Look at yourself in the mirror in two years and you′ll think "that was quick!".
 
 Every day counts.
 
