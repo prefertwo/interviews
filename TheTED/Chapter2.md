@@ -52,3 +52,5 @@ Contrary to popular opinion, the most productive, successful people quit on thei
 Finish what you start.
 
 Whilst it can be exciting to start new ideas and goals, if we don′t finish what we start valuable time and energy that can′t be recovered--will go to waste. Falling in love with finishing is hard. But, if you can learn to fall in love with the art of finishing and the process of overcoming adversity failures and working around obstacles, you′ll consistently follow through on your ideas.
+
+[see the video](https://www.bilibili.com/video/BV1oE411k7aQ/)
