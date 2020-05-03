@@ -25,3 +25,26 @@ function BubbleSort(arr) {
 
 // BubbleSort(arr);
 // console.log(arr);
+
+// 选择排序 -- 修改数组，时间复杂度为 O(n^2/2), 大 O 记法会忽略常数,所以冒泡排序和选择排序时间复杂度相同，但是选择排序会更快。
+function SelectSort(arr) {
+  if(!Array.isArray(arr)) return [];
+  let len = arr.length;
+  for(let i=0;i<len;i++) {
+    let minNumIndex = i;
+    for(let j=i+1;j<len;j++) {
+      if(arr[j] < arr[minNumIndex]) {
+        minNumIndex = j;
+      }
+    }
+    if(minNumIndex !== i) {
+      let itemT = arr[minNumIndex];
+      arr[minNumIndex] = arr[i];
+      arr[i] = itemT;
+    }
+  }
+  return arr;
+}
+
+// console.log( SelectSort(arr) );
+
