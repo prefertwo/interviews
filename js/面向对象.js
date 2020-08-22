@@ -270,5 +270,13 @@ console.log(descriptor)
   }
 
 
-
+  // 复制一个对象，改变一个并且不影响另一个
+  const obj1 = [{
+    a: 1,
+    b: 2,
+  }]
+  const obj2 = JSON.parse(JSON.stringify(obj1)) ;
+  obj1[0].a = 10
+  console.log(obj1)
+  console.log(obj2)
 
