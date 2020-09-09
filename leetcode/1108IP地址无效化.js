@@ -14,5 +14,6 @@
 
 const defangIPaddr = (address) => {
   // return address.split('.').join('[.]'); // 数组方法
-  return address.replace(/\./g, "[.]"); // 正则
+  return address.replaceAll('.', '[.]'); // 目前还有浏览器不支持
+  // return address.replace(/\./g, "[.]"); // 正则
 };
