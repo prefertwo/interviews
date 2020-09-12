@@ -1,0 +1,11 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background: #f00 url("/blog/img/401.png") no-repeat;
+  /* 如果想以短边为基准，填满，则设置如下, 多出来的部分会被背景色填充 */
+  background-size: cover;
+  /* 如果想以长边为基准，填满，则设置如下，多出来的部分会被背景色填充 */
+  background-size: contain;
+  /* 如果想整个填满，则设置如下，背景图可能会变形 */
+  background-size: 100% 100%;
+}

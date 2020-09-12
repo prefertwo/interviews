@@ -1,0 +1,15 @@
+/* 
+
+  有一个需求：不知宽度的容器中文字可能会是不足整行，也可能是多行。
+  要求：单行时居中显示，多行时居左显示。
+  考察的flex布局
+
+ */
+
+.box {
+  display: flex;
+  /* 默认就是 row */
+  flex-direction: row;
+  /* 利用如下属性：此属性能满足需求 */
+  justify-content: center;
+}
