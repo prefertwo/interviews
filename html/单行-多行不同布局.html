@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单行-多行不同布局</title>
+    <style>
+        .box1 div {
+            width: 200px;
+            border: 1px solid #f00;
+            margin-right: 20px;
+
+        }
+        /* 方法1：
+            利用属性。但是浏览器支持不同。
+         */
+        .box1 div::first-line {
+            text-align-last: right;
+        }
+        /* 
+            方法2：对于一个元素，如果其display属性值是inline-block，那么其宽度由内部元素决定，
+            但永远小于“包含块”容器的尺寸，也就是“包裹性（shrink-to-fit）”
+
+            当文本比较少时，.text的宽度跟随文本，然后我们可以使用父级text-align:right来使一个inline-block元素居右，所以可以满足单行文本居中的效果，
+            当文本比较多时，.text的宽度跟随父级容器，由于text-align:right会继承下去，所以在.text上修复一下即可
+         */
+        .box2 {
+            width: 600px;
+            text-align: right;
+        }
+        .box2 span {
+            display: inline-block;
+            text-align: left;
+        }
+
+        /* 
+            方法3：(仅适用于单行居中，多行居左)
+            利用 relative && transform
+         */
+        .box3 {
+            width: 300px;
+        }
+        .box3 span {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div>这里是文字</div>
+        <div>这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字</div>
+    </div>
+    
+    <div class="box2">
+        <span>这里是文字这里是文c字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字</span>
+    </div>
+    <div class="box2">
+        <span>这里是文字</span>
+    </div>
+    
+    <div class="box3">
+        <span>这里是文字</span>
+    </div>
+    <div class="box3">
+        <span>这里是文字这里是文c字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字</span>
+    </div>
+
+
+    
+</body>
+</html>
