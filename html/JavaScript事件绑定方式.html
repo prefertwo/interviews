@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript 事件绑定</title>
+    <style>
+      div {
+        display: flex;
+      }
+      button {
+        padding: 10px;
+        margin-right: 10px;
+      }
+    </style>
+    <script>
+      function clickEvent() {
+        console.log(`这是行内绑定的事件`);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <button id="btn1" onclick="clickEvent('lka')">方法1：行内绑定</button>
+      <button id="btn2">方法2：属性绑定</button>
+      <button id="btn3">方法3：事件监听</button>
+      <div class="box1"></div>
+    </div>
+    <section>
+      <div>
+        方法1 注意的是要提前声明函数，如果是在
+        <code>window.onload</code>
+        之后执行，则会报错，无法正确执行事件。
+        动态添加元素也可以正常执行行内绑定的事件。
+        <strong>只能绑定一个事件</strong>
+      </div>
+      <div>方法2 无法为动态添加的元素绑定事件。</div>
+      <div>
+        方法3 无法为动态添加的元素绑定事件。<strong>可以绑定多个事件</strong>
+      </div>
+    </section>
+    <script>
+      window.onload = function () {
+        let wrap = document.querySelector(".box1"),
+          btn1 = document.getElementById("btn1"),
+          btn2 = document.getElementById("btn2"),
+          btn3 = document.getElementById("btn3"),
+          btn4 = document.getElementById("btn4");
+        // btn2 = document.getElementById("btn2"),
+        // btn2 = document.getElementById("btn2");
+
+        btn2.onclick = function () {
+          console.log(`这里是先获取属性，然后 dom.onclick = function() {}`);
+        };
+
+        // btn4.onclick = function () {
+        //   console.log("动态添加元素，onclick = fucntion() {} 方法");
+        // };
+
+        btn3.addEventListener(
+          "click",
+          function () {
+            console.log(`事件一：这是通过事件监听来绑定的`);
+          },
+          false
+        );
+        btn3.addEventListener(
+          "click",
+          function () {
+            console.log(`事件二：这是通过事件监听来绑定的`);
+          },
+          false
+        );
+        // btn4.addEventListener(
+        //   "click",
+        //   function () {
+        //     console.log(`这是通过事件监听来绑定的`);
+        //   },
+        //   false
+        // );
+
+        setTimeout(() => {
+          let element = document.createElement("button");
+          element.onclick = clickEvent;
+          element.innerHTML = "";
+          element.textContent = "这是新插入的按钮";
+          wrap.appendChild(element);
+
+          wrap.innerHTML =
+            '<button id="btn4" onclick="clickEvent()">方法1：行内绑定。这也是新增元素。</button>';
+        }, 3000);
+      };
+    </script>
+  </body>
+</html>
