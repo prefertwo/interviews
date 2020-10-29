@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    /**
+     * 实现一个 add 函数,满足一下功能
+     * add(1); // 1
+     * add(1)(2); // 3
+     * add(1)(2)(3)；// 6
+     * add(1)(2, 3); // 6
+     * add(1, 2)(3); // 6
+     * add(1, 2, 3); // 6
+     */
+
+    // toString、valueOf、柯里化  
+    function add() {
+        console.log('arguments==', arguments)
+        let args = [...arguments];
+        console.log('args==', args)
+
+        let _add = function (...rest) {
+            Array.prototype.push.apply(args, rest);
+            return _add;
+        };
+        _add.toString = function () {
+            return args.reduce((acc, cur) => acc + cur, 0);
+        };
+        return _add;
+    }
+    console.log('result == ', add(1)(2));
+    console.log('result type == ', typeof add(1)(2));
+
+    
+</script>
+
+
+</html>

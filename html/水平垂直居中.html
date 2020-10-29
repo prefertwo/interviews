@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>多种方法使元素水平垂直居中</title>
+  <style>
+    body > div {
+      margin-top: 20px;
+    }
+    .center .span {
+      display: block;
+      /* display: inline-block;
+      width: 100%; */
+      text-align: center;
+      line-height: 100px;
+    }
+    
+    .out, .in, .center {
+      border: #f00 solid 1px;
+    }
+    .center,
+    .out {
+      width: 200px;
+      height: 100px;
+    }
+    .in {
+      width: 50px;
+      height: 25px;
+    }
+
+    /* 1、flex */
+    /* .out, .in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+    /*  */
+    .table {
+      width: 200px;
+      height: 100px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      border: #00f solid 1px;
+    }
+
+    /* 2、利用定位和偏移 */
+    /* .out {
+      position: relative;
+    }
+    .in {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    } */
+
+    /* 3、利用定位 */
+    /* .out {
+      position: relative;
+    }
+    .in {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    } */
+
+    /* 4、利用定位和margin负值。需要内部元素有固定宽高 */
+    .out {
+      position: relative;
+    }
+    .in {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -25px;
+      margin-top: -12.5px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="out">
+    <div class="in">布局</div>
+  </div>
+
+  <div class="table">直接文字居中</div>
+
+  <div class="center"><span class="span">这要居中</span></div>
+</body>
+</html>

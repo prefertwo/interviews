@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .aaa {
+            width: 100%;
+            padding: 30px;
+            display: flex;
+        }
+        .aaa .btn {
+            padding: 8px 16px;
+            display: flex;
+            border: #0000aa solid 1px;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <div>
+        <div class="aaa" >
+            <div class="btn" onclick="action(1)">动作1</div>
+            <div class="btn" onclick="action(2)">动作2</div>
+            <div class="btn" onclick="action(3)">动作3</div>
+            <div class="btn" onclick="action(4)">动作4</div>
+            <div class="btn" onclick="action(5)">动作5</div>
+            <div class="btn" onclick="action(6)">动作6</div>
+            <div class="btn" onclick="closeLink()">关闭链接</div>
+            <div class="btn" onclick="openLink()">建立链接</div>
+        </div>
+    </div>
+
+    <div><a href="https://www.cnblogs.com/xguoz/p/11271430.html">My blog WebSocket</a></div>
+
+    <script>
+        // const socket = new WebSocket('ws://localhost:2333');
+
+        let socket = null;
+
+        function openLink () {
+            socket = new WebSocket('ws://localhost:2333');
+            console.log('socket == ', socket)
+
+            // 用于返回服务器端选中的子协议的名字；这是一个在创建WebSocket 对象时，在参数protocols中指定的字符串
+            // console.log( 'socket protocol == ', socket.protocol )
+            // 返回当前 WebSocket 的链接状态。
+            // 0：连接中；1：已连接且可通讯；2：正在关闭；3：连接已关闭或没有连接成功
+            // console.log( 'socket readyState == ', socket.readyState )
+            // 构造函数创建WebSocket实例对象时URL的绝对路径。
+            // console.log( 'socket url == ', socket.url )
+            // 返回服务器已选择的扩展值。目前，链接可以协定的扩展值只有空字符串或者一个扩展列表。
+            // console.log( 'socket extensions == ', socket.extensions )
+            // 返回已经被send()方法放入队列中但还没有被发送到网络中的数据的字节数。一旦队列中的所有数据被发送至网络，则该属性值将被重置为0。但是，若在发送过程中连接被关闭，则属性值不会重置为0。如果你不断地调用send()，则该属性值会持续增长。
+            // console.log( 'socket bufferedAmount == ', socket.bufferedAmount )
+
+        }
+
+        openLink();
+
+        // 指定链接成功后的回调
+        socket.onopen = function () {
+            console.log('这是连接成功后的回调')
+        }
+
+        socket.addEventListener('open', function(event) {
+            console.log('链接上了 == ', event)
+            // socket.send(1)
+        })
+
+        
+
+        // 指定链接失败后的回调
+        socket.onerror = function(event) {
+            console.log('链接错误 == ', event)
+        }
+
+        socket.addEventListener('error', function(event) {
+            console.log('addEventListener error == ', event)
+        })
+
+        // 获取当前的链接状态
+        // let readyState = socket.readyState;
+        // console.log('readyState == ', readyState)
+
+        // 指定从服务器接收消息时的回调
+        socket.onmessage = function(event) {
+            console.log('onmessage == ', event.data)
+        }
+
+        socket.addEventListener('message', function(event) {
+            console.log('message from server == ', event.data)
+        })
+
+        // 指定链接关闭后的回调
+        socket.onclose = function() {
+            alert('链接已关闭，后续操作无效')
+        }
+
+        socket.addEventListener('close', function() {
+            console.log('close link')
+        })
+
+        function action(num) {
+
+            // console.log(num)
+            let readyState = socket.readyState;
+
+            console.log('readyState == ', readyState)
+            if(readyState == 1) {
+                socket.send(num)
+            } else {
+                alert('链接已关闭，操作无效')
+            }
+        }
+
+        
+
+        function closeLink() {
+            console.log('关闭链接')
+            socket.close()
+        }
+        
+    </script>
+
+    <!-- <script src="./index.js"></script> -->
+
+    
+</body>
+
+</html>

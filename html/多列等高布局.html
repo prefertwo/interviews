@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>多列等高布局</title>
+    <style>
+      body > div {
+        margin-top: 20px;
+      }
+      /* flex 布局 */
+      /* .wrap {
+      display: flex;
+    }
+    .wrap .box {
+      display: flex;
+      flex: 1;
+      min-height: 100%;
+    } */
+
+    /* 边界补偿 */
+      /* .wrap {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .wrap .box {
+      width: 200px;
+      float: left;
+      padding-bottom: 1000px;
+      margin-bottom: -1000px;
+    } */
+
+    /* 定位模拟 */
+      /* .wrap {
+      position: relative;
+    }
+    .wrap .box:nth-of-type(1) {
+      width: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .wrap .box:nth-of-type(2) {
+      width: 400px;
+      border-left: 200px solid #f00;
+      border-right: 300px solid #00f;
+    }
+    .wrap .box:nth-of-type(3) {
+      width: 300px;
+      position: absolute;
+      top: 0;
+      left: 600px;
+    } */
+
+    /* table-cell 布局 */
+    /* .wrap .box {
+      display: table-cell;
+      width: 30%;
+    } */
+    .wrap {
+      position: relative;
+    }
+    .box:nth-of-type(2) {
+      border-left: 220px solid #00f;
+      border-right: 320px solid #0f0;
+      background-color: #f00;
+    }
+    .box:nth-of-type(1) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+    }
+    .box:nth-of-type(3) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="box" >这是左边内容</div>
+      <div class="box" >
+        这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。这是中间内容，右边暂时无内容。
+      </div>
+      <div class="box" >dd</div>
+    </div>
+  </body>
+</html>

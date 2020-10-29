@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 400px;
+      }
+      .wrap {
+        width: 400px;
+        margin: 20px auto;
+        border: 1px solid #ff0000;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+      .box:nth-child(1) {
+        background-color: #98f798;
+      }
+      .box:nth-child(2) {
+        background-color: cornflowerblue;
+      }
+      .float-left {
+        float: left;
+      }
+      .float-right {
+        float: right;
+      }
+      .wrap::after {
+        content: "saf";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+      }
+      .clear-float {
+        /* content: '清除浮动';
+      display: block; */
+        clear: both;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div class="box float-left">左浮动</div>
+        <div class="box float-right">右浮动</div>
+        <!-- <div class="clear-float"></div> -->
+      </div>
+      <div>我位于浮动元素后面</div>
+    </div>
+  </body>
+</html>
