@@ -12,7 +12,7 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 function FindkthToTail1(arr, k) {
   // 这里要不要判断数据类型呢？？？
-  if(!arr || arr.length === 0 || k === 0 || k > arr.length) return '非法数据' ;
+  if (!arr || arr.length === 0 || k === 0 || k > arr.length) return "非法数据";
   const indexTarget = arr.length - k;
   return arr[indexTarget];
 }
@@ -25,18 +25,18 @@ function FindkthToTail1(arr, k) {
  * 先让一个指针走k-1步，然后让第二个指针走，当第一个指针走到最后，第二个指针刚好到达倒数第 k 的位置。
  */
 function FindkthToTail2(arr, k) {
-  if(!arr || arr.length === 0 || k === 0 || k > arr.length) return '非法数据' ;
+  if (!arr || arr.length === 0 || k === 0 || k > arr.length) return "非法数据";
   let target;
   let index2 = 0;
-  for(let i=0;i<arr.length;i++) {
-    if (i > k-1) {
-      index2++
+  for (let i = 0; i < arr.length; i++) {
+    if (i > k - 1) {
+      index2++;
     }
-    if(i==arr.length-1) {
+    if (i == arr.length - 1) {
       target = arr[index2];
     }
   }
   return target;
 }
 
-console.log( FindkthToTail2(arr, 2) );
+console.log(FindkthToTail2(arr, 2));

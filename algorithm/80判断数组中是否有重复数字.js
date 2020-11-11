@@ -19,7 +19,12 @@ function hasDuplicateValue(arr) {
 
 // console.log(hasDuplicateValue(arrN));
 
-// 线性解决，时间复杂度为 O(n)。数组去重也可用此法，稍作改变，将置位1的位置同时给一个新数组赋值，去掉return true，最后新数组就是去重之后的
+/**
+ * 线性解决，时间复杂度为 O(n)。数组去重也可用此法，稍作改变
+ * 将置位1的位置同时给一个新数组赋值，去掉return true，最后新数组就是去重之后的
+ * @param {number[]} arr
+ */
+
 function hasDuplicateValue2(arr) {
   if (!Array.isArray(arr)) return "Invalid Input";
   let obj = {};
