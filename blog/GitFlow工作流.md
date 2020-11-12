@@ -4,7 +4,7 @@
 
 Vincent Driessen 为了解决这个问题提出了 [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/)
 
-![本地图片](/img/gitflow.png "工作流")
+![本地图片](./img/gitflow.png "工作流")
 
 ## Git Flow 常用分支
 
