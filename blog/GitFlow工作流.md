@@ -26,10 +26,10 @@ Vincent Driessen 为了解决这个问题提出了 [A Successful Git Branching M
 [详细解释参考](https://www.jianshu.com/p/41910dc6ef29)
 
 
-![本地图片](/img/gitflow1.jpg "工作流")
-![本地图片](/img/gitflow2.jpg "工作流")
-![本地图片](/img/gitflow3.jpg "工作流")
-![本地图片](/img/gitflow4.jpg "工作流")
+![本地图片](./img/gitflow1.jpg "工作流")
+![本地图片](./img/gitflow2.jpg "工作流")
+![本地图片](./img/gitflow3.jpg "工作流")
+![本地图片](./img/gitflow4.jpg "工作流")
 
 
 ## Git Flow 命令参考
