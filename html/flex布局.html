@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex布局</title>
+  </head>
+  <body>
+    <h3>1、Flex布局：弹性布局。任何一个元素都可以指定为弹性布局。</h3>
+    <p>
+      设置为<b>弹性布局</b>子元素的
+      <code>float</code>
+      、<code>clear</code>和<code>vertical-align</code>属性将失效。
+    </p>
+
+    <h3>2、设置了Flex布局的称之为Flex容器。子元素称之为项目。</h3>
+    <p>以下6个属性设置在容器上：</p>
+    <code>
+      <ol>
+        <li>flex-direction</li>
+        <p>决定主轴方向，即项目的排列方向。可选值：row | row-reverse | column | column-reverse</p>
+        <li>flex-wrap</li>
+        <p>决定项目在一排放不下时如何换行。可选值：nowrap | wrap | wrap-reverse</p>
+        <li>flex-flow</li>
+        <p>前两项的简写。</p></p>
+        <li>justify-content</li>
+        <p>决定项目在主轴对齐方式，可选值：flex-start | flex-end | center | space-between | space-around</p>
+        <li>align-items</li>
+        <p>决定项目在交叉轴对齐方式，可选值：flex-start | flex-end | center | baseline | stretch</p>
+        <li>align-content</li>
+        <p>决定多跟轴线时的对齐方式，单轴线该属性不起作用，可选值：flex-start | flex-end | center | space-between | space-around | stretch</p>
+      </ol>
+    </code>
+
+    <p>以下6个属性作用在项目上：</p>
+    <code>
+      <ol>
+        <li>order</li>
+        <p>定义项目的排列顺序，值越小越靠前</p>
+        <li>flex-grow</li>
+        <p>定义项目放大的比例，默认为0，即不放大</p>
+        <li>flex-shrink</li>
+        <p>定义项目缩小比例，默认为1，即空间不足时，将缩小</p>
+        <li>flex-basis</li>
+        <p>定义了在分配多余空间之前，项目占据的主轴空间，它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</p>
+        <li>flex</li>
+        <p>前3个的缩写，默认值：0 1 auto；</p>
+        <p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。</p>
+        <li>align-self</li>
+        <p>允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。可选值：auto | flex-start | flex-end | center | baseline | stretch</p>
+        <p>默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+      </ol>
+    </code>
+  </body>
+</html>
