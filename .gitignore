@@ -1,4 +1,5 @@
 test*
 .DS_Store
 .vscode/
-todoList.html
+/lib
+/work

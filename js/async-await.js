@@ -1,4 +1,11 @@
 
+/**
+ * await会让出线程，阻塞后面的代码(会先执行await紧跟的方法，然后阻塞后面的)
+ * 
+ */
+
+ 
+
 function testSometing() {
   console.log("执行testSometing");
   return "testSometing";
@@ -42,6 +49,7 @@ console.log("test end...")
  *        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
  *        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await
  *        http://www.ruanyifeng.com/blog/2015/05/async.html
+ *        https://mp.weixin.qq.com/s/U46Z0lc1HwzEw6cXMhmudw
  * 
  */
 
