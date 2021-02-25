@@ -43,6 +43,28 @@ curried(1, 2)(3) // [ 1, 2, 3 ]
 curried(1, 2) // [ 1, 2, 3 ]
 
 // 防抖
+/**
+ * 防抖函数：动作绑定函数，触发高频事件后，一定时间后（n 秒）后执行函数，如果在该时间内再次触发则重新计时，等待 n 秒后再执行。防止多次重复执行。
+ * 使用场景：一般是按钮事件、form表单的提交 等可能会发生多次重复执行的地方。
+ */
+
+/**
+ * 防抖函数：动作绑定函数，触发高频事件后，一定时间后（n 秒）后执行函数，
+ * 如果在该时间内再次触发则重新计时，等待 n 秒后再执行。防止多次重复执行。
+ * 使用场景：一般是按钮事件、form表单的提交 等可能会发生多次重复执行的地方。
+ */
+
+function debounce(fn, time = 500) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, time);
+  };
+}
+
+// 极简版
 function debounce(func, wait) {
   let timer;
   return function() {
@@ -54,6 +76,9 @@ function debounce(func, wait) {
     }, wait);
   }
 }
+
+// lodash 版
+// https://github.com/lodash/lodash/blob/master/debounce.js
 
 // 可配置 防抖函数
 function debounce(func, wait, leading, trailing) {
@@ -83,6 +108,7 @@ function debounce(func, wait, leading, trailing) {
 }
 
 // 节流函数
+// 极简版
 function throttle(func, wait) {
   let timer;
   return function() {
@@ -97,21 +123,9 @@ function throttle(func, wait) {
   }
 }
 
+// lodash 版本
+// https://github.com/lodash/lodash/blob/master/throttle.js
 
-/**
- * 防抖函数：动作绑定函数，触发高频事件后，一定时间后（n 秒）后执行函数，
- * 如果在该时间内再次触发则重新计时，等待 n 秒后再执行。防止多次重复执行。
- * 使用场景：一般是按钮事件、form表单的提交 等可能会发生多次重复执行的地方。
- */
-function debounce(fn, time = 500) {
-  let timer;
-  return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn.apply(this, arguments);
-    }, time);
-  };
-}
 
 /**
  * 节流函数：高频事件触发，但在一定时间内只会执行一次，节流函数会稀释函数的执行频率。
@@ -130,27 +144,3 @@ function throttle(fun, time = 500) {
     }, time);
   };
 }
-
-let add = (x) => x + 1;
-
-let unary = function (add) {
-  return function (x) {
-    return add(x);
-  };
-};
-unary(add)(2);
-
-/**
- * one(add(two())) // 3
- * two(add(one())) // 3
- * 写出 one()two()add() 的 实现
- */
-
-let one = (x) => (x ? x + 1 : 1);
-let two = (x) => (x ? x + 2 : 2);
-let add = (x) => x;
-
-let tt1 = one(add(two()));
-let tt2 = two(add(one()));
-console.log(tt1);
-console.log(tt2);

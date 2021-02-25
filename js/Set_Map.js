@@ -1,4 +1,6 @@
 /**
+ * 详细文档：https://es6.ruanyifeng.com/#docs/set-map
+ * 
  * ES6的提供的新数据结构 Set 、Map
  */
 
