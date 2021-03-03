@@ -49,3 +49,21 @@ String.prototype.firstAppear = function () {
 
 const str2 = "leetcode";
 console.log(str2.firstAppear());
+
+/**
+ * 根据下标判断
+ */
+
+String.prototype.firstAppear = function () {
+  const len = this.length;
+  for (let i = 0; i < len; i++) {
+    const code = this.charAt(i);
+    if (this.indexOf(code) === i && this.indexOf(code, i + 1) === -1) {
+      return code;
+    }
+  }
+  return " ";
+};
+
+const str3 = "leetcode";
+console.log(str3.firstAppear());
