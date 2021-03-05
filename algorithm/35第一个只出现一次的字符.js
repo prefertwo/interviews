@@ -58,6 +58,7 @@ String.prototype.firstAppear = function () {
   const len = this.length;
   for (let i = 0; i < len; i++) {
     const code = this.charAt(i);
+    // 从出现的第一个下标往后，如果不存在则是目标值
     if (this.indexOf(code) === i && this.indexOf(code, i + 1) === -1) {
       return code;
     }
