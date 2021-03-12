@@ -3,9 +3,9 @@
  *
  * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
  *
- * 详细：
+ * 详细：https://leetcode-cn.com/problems/first-unique-character-in-a-string/
  *
- * 题解：
+ * 题解：https://leetcode-cn.com/problems/first-unique-character-in-a-string/solution/zi-fu-chuan-zhong-de-di-yi-ge-wei-yi-zi-x9rok/
  *
  * 提示：你可以假定该字符串只包含小写字母。
  *
