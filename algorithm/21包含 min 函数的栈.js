@@ -3,6 +3,11 @@
  *
  * 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数。
  * 在该栈中，调用 min、push 及 pop 的时间复杂度都是O(1)。
+ * 
+ * 类似下题
+ * 详细：https://leetcode-cn.com/problems/min-stack/  
+ * 
+ * 题解：https://leetcode-cn.com/problems/min-stack/solution/zui-xiao-zhan-by-leetcode-solution/
  *
  */
 
