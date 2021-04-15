@@ -4,12 +4,17 @@
  * F(0) = 0,   F(1) = 1
  * F(N) = F(N - 1) + F(N - 2), 其中 N > 1
  *
+ * 详细：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/
+ *
+ * 题解：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/solution/mian-shi-ti-10-i-fei-bo-na-qi-shu-lie-dong-tai-gui/
+ *
  * 有 6 种方法：递归、记忆化自底向上的方法、记忆化自顶向下的方法、自底向上进行迭代、矩阵求幂、公式法
  *
  */
 
 /**
- * 迭代（递归）
+ * 迭代（递归）（理论上是可以的，但是会超时）
+ *
  * @param {number} N
  * @returns {number}
  */
@@ -36,6 +41,7 @@ const fib2 = (N) => {
     for (let i = 2; i <= N; i++) {
       arrT[i] = arrT[i - 1] + arrT[i - 2];
     }
+    console.log(arrT);
     return arrT[N];
   };
   return memoize(N);
@@ -86,3 +92,5 @@ console.log(fib4(10));
 
 // 公式法：黄金分割比
 // https://demonstrations.wolfram.com/GeneralizedFibonacciSequenceAndTheGoldenRatio/
+
+console.log(fib2(45));
