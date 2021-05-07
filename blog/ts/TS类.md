@@ -237,7 +237,8 @@ class Octopus {
 **存取器**
 
 TS 支持通过 `getter/setter` 来截取对对象成员的访问。它能帮助你有效的控制对对象成员的访问。
-存取器要求你将编译器设置为输出ECMAScript 5或更高。 不支持降级到ECMAScript 3。
+存取器要求你将编译器设置为输出 ECMAScript 5 或更高。 不支持降级到 ECMAScript 3。
+
 ```
 let passcode = "secret passcode";
 
@@ -266,7 +267,9 @@ if (employee.fullName) {
 ```
 
 #### 静态属性
+
 我们也可以创建类的静态成员，这些属性存在于类本身上面而不是类的实例上。每个实例想要访问静态属性的时候，都要在属性前面加上类名。如同在实例属性上使用 this.前缀来访问属性一样。
+
 ```
 class Grid {
   static origin = { x: 0, y: 0 };
@@ -339,7 +342,3 @@ let point2 = <Point3D>{}
 // TypeScript会假设你，程序员，已经进行了必须的检查。
 
 ```
-
-
-
-

@@ -2,25 +2,25 @@
 
 #### 基础类型
 
-1. 布尔值
+1. 布尔值: boolean
 
 ```
 let isFinish: boolean = true;
 ```
 
-2. 数字类型
+2. 数字类型: number
 
 ```
 const staticNumber: number = 12;
 ```
 
-3. 字符串
+3. 字符串: string
 
 ```
 const name: string = 'Jerry';
 ```
 
-4. 数组
+4. 数组: [] | Array<string>
    有两种方式定义
 
 ```
